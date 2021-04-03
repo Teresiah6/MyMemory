@@ -5,7 +5,7 @@ enum class BoardSize (val numCards: Int){
     MEDIUM (18),
     HARD (24);
 
-    fun getWith():Int{
+    fun getWidth():Int{
         return when(this){
             EASY -> 2
             MEDIUM -> 3
@@ -13,7 +13,7 @@ enum class BoardSize (val numCards: Int){
         }
     }
     fun getHeight():Int {
-        return numCards/getWith()
+        return numCards/getWidth()
     }
 
     fun getNumPairs():Int {
