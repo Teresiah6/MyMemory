@@ -2,6 +2,7 @@ package com.example.android.mymemory.utils
 
 import com.example.android.mymemory.R
 
+const val EXTRA_GAME_NAME ="EXTRA_GAME_NAME"
 const val EXTRA_BOARD_SIZE = "EXTRA_BOARD_SIZE"
 
 val DEFAUlT_ICONS = listOf(
