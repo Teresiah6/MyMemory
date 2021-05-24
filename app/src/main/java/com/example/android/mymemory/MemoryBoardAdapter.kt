@@ -13,6 +13,7 @@ import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android.mymemory.models.BoardSize
 import com.example.android.mymemory.models.MemoryCard
+import com.squareup.picasso.Picasso
 import kotlin.math.min
 
 class MemoryBoardAdapter(
@@ -38,8 +39,17 @@ class MemoryBoardAdapter(
 
         fun bind(position: Int) {
             val memoryCard = cards [position]
-            imageButton.setImageResource(if (memoryCard.isFaceUp) memoryCard.identifier else
-                R.drawable.ic_launcher_background)
+            if(memoryCard.isFaceUp){
+                if(memoryCard.imageUrl != null){
+                  Picasso.get().load(memoryCard.imageUrl).into(imageButton)
+                } else{
+                    imageButton.setImageResource(memoryCard.identifier)
+                }
+            } else {
+                imageButton.setImageResource(R.drawable.ic_launcher_background)
+            }
+//            imageButton.setImageResource(if (memoryCard.isFaceUp) memoryCard.identifier else
+//                R.drawable.ic_launcher_background)
 
             // alpha value refers to the degree of opacity
             imageButton.alpha = if(memoryCard.isMatched).4f else 1.0f
